@@ -1,0 +1,50 @@
+{% extends 'baseshtmls/base1.html'%}
+{% load static %}
+
+{% block navbar %}
+<nav class="navbar navbar-expand-lg bg-body-tertiary" style="width: 1500px;" >
+    <div class="container-fluid">
+      <a class="navbar-brand" href="{% url 'home'%}"> <p> &#128214; ProvérbiosOnline</p> </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+</nav>
+
+{% endblock navbar%}
+
+{%block toolbar%}
+<nav class="nav">
+    <a class="nav-link" href="{% url 'amigos'%}">Amigos</a>
+    <a class="nav-link" href="{% url 'emprestimo'%}">Emprestimo</a>
+    <a class="nav-link" href="{% url 'familia'%}">Família</a>
+    <a class="nav-link" href="{% url 'investimento'%}">Investimentos</a>
+    <a class="nav-link" href="{% url 'trabalho'%}">Trabalho</a>
+    <a class="nav-link" href="{% url 'justiça'%}">Justiça</a>
+    <a class="nav-link" href="{% url 'disciplina'%}">Disciplina</a>
+    <a class="nav-link" href="{% url 'vizinho'%}">Vizinho</a>
+    <a class="nav-link" href="{% url 'sabio'%}">Sábio</a>
+    <a class="nav-link" href="{% url 'sabedoria'%}">Sabedoria</a>
+    <a class="nav-link" href="{% url 'preguiça'%}">Preguiça</a>
+</nav>
+{% endblock toolbar%}
+
+
+{% block titulo %}  
+    <nav class="toolbar"> <h2 class="titulo"><i>Amigos</i></h2></nav>
+{% endblock titulo %}
+
+{% block conteudo %}
+    {% for postagem in postagens%}
+        <div class="conteiner">
+            <h3 class="titulo2" >{{postagem.versiculo}}</h3>
+            <b>contexto:</b>
+            <p class="postagem">{{postagem.contexto}}</p>
+            <b>aplicação:</b>
+            <p class="postagem">{{postagem.aplicacao}}</p>
+        </div>
+        <hr>
+    {% endfor%}
+{% endblock conteudo%}
+
+

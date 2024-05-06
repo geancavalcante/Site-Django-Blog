@@ -1,0 +1,67 @@
+{% extends 'baseshtmls/base.html' %}
+{% load static %}
+
+
+{% block navbar %}
+<nav class="navbar navbar-expand-lg bg-body-tertiary" style="width: 1500px; " >
+    <div class="container-fluid">
+      <a class="navbar-brand" href="{% url 'home'%}"> <p> &#128214; ProvérbiosOnline</p></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+</nav>
+{% endblock navbar%}
+
+
+
+{% block toolbar%}
+<nav class="nav">
+    <a class="nav-link" href="{% url 'amigos'%}">Amigos</a>
+    <a class="nav-link" href="{% url 'emprestimo'%}">Emprestimo</a>
+    <a class="nav-link" href="{% url 'familia'%}">Família</a>
+    <a class="nav-link" href="{% url 'investimento'%}">Investimentos</a>
+    <a class="nav-link" href="{% url 'trabalho'%}">Trabalho</a>
+    <a class="nav-link" href="{% url 'justiça'%}">Justiça</a>
+    <a class="nav-link" href="{% url 'disciplina'%}">Disciplina</a>
+    <a class="nav-link" href="{% url 'vizinho'%}">Vizinho</a>
+    <a class="nav-link" href="{% url 'sabio'%}">Sábio</a>
+    <a class="nav-link" href="{% url 'sabedoria'%}">Sabedoria</a>
+    <a class="nav-link" href="{% url 'preguiça'%}">Preguiça</a>
+</nav>
+{% endblock toolbar%}
+
+{% block conteudo %}
+  {% for postagem in familia %}
+        <div class="conteiner">
+          <a class="titulo" href="{% url 'familia'%}"><h2><i>Tema: Família</h2></i></a>
+          <h3 class="titulo2">{{postagem.versiculo}}</h3>
+          <b>contexto:</b>
+          <p>{{postagem.contexto}}</p>
+          <b>aplicação:</b>
+          <p >{{postagem.aplicacao}}</p>
+        </div>
+  {% endfor%}
+<hr>
+  {% for postagem in amigos %}
+        <div class="conteiner">
+          <a class="titulo" href="{% url 'amigos'%}"><h2><i>Tema: Amigos</h2></i></a>
+          <h3 class="titulo2" >{{postagem.versiculo}}</h3>
+          <b>Contexto:</b>
+          <p >{{postagem.contexto}}</p>
+          <b>aplicação:</b>
+          <p >{{postagem.aplicacao}}</p>
+        </div>
+  {% endfor%}
+<hr>
+  {% for postagem in trabalho %}
+        <div class="conteiner">
+          <a class="titulo" href="{% url 'trabalho'%}"><h2><i>Tema: Trabalho</h2></i></a>
+          <h3 class="titulo2" >{{postagem.versiculo}}</h3>
+          <b>contexto:</b>
+            <p>{{postagem.contexto}}</p>
+          <b>aplicação:</b>
+          <p>{{postagem.aplicacao}}</p>
+        </div>
+  {% endfor%}
+{% endblock conteudo%}
